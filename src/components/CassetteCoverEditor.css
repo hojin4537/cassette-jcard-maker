@@ -1,0 +1,247 @@
+.cassette-cover-editor {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  background-color: #f5f5f5;
+  overflow: hidden;
+}
+
+/* 왼쪽 사이드바 */
+.editor-sidebar {
+  width: 400px;
+  min-width: 300px;
+  background-color: white;
+  border-right: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* 헤더 */
+.editor-header {
+  padding: 20px;
+  border-bottom: 1px solid #ddd;
+  flex-shrink: 0;
+}
+
+.editor-title {
+  margin: 0 0 8px 0;
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+}
+
+.editor-subtitle {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+}
+
+/* 사이드바 내부 컨텐츠 */
+.editor-sidebar-inner {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  min-height: 0;
+  padding-bottom: 20px;
+}
+
+.editor-sidebar-inner::-webkit-scrollbar {
+  width: 8px;
+}
+
+.editor-sidebar-inner::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.editor-sidebar-inner::-webkit-scrollbar-thumb {
+  background: #ddd;
+  border-radius: 4px;
+}
+
+.editor-sidebar-inner::-webkit-scrollbar-thumb:hover {
+  background: #bbb;
+}
+
+/* 입력 섹션 */
+.input-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+/* 메인 이미지 섹션 - 적절한 크기로 고정 */
+.input-section:has(.image-upload) {
+  flex-shrink: 0;
+  min-height: 200px;
+}
+
+.input-section:has(.image-upload) .image-upload {
+  min-height: 200px;
+}
+
+.image-preview-container {
+  margin-top: 12px;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.image-preview {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 다음 버튼 */
+.next-button {
+  width: 100%;
+  padding: 14px;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background-color 0.2s;
+  flex-shrink: 0;
+  margin-top: 8px;
+}
+
+.next-button:hover:not(:disabled) {
+  background-color: #357abd;
+}
+
+.next-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* 오른쪽 프리뷰 영역 */
+.editor-content {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.editor-preview {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  overflow: auto;
+}
+
+.cover-preview {
+  width: 100%;
+  max-width: 780px;
+  /* Match Preview dimensions: 6.6cm @ 300 DPI */
+}
+
+.cover-preview-image {
+  width: 100%;
+  aspect-ratio: 6.6 / 10.4;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.cover-preview-text {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  white-space: nowrap;
+  max-width: 90%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.preview-placeholder {
+  text-align: center;
+  color: #999;
+  font-size: 16px;
+}
+
+/* 반응형 */
+@media (max-width: 1024px) {
+  .cassette-cover-editor {
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .editor-sidebar {
+    width: 100%;
+    flex-shrink: 0;
+    min-height: 100vh;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .editor-sidebar-inner {
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .editor-content {
+    flex-shrink: 0;
+    min-height: 50vh;
+    position: relative;
+    z-index: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .editor-header {
+    padding: 16px;
+  }
+
+  .editor-title {
+    font-size: 20px;
+  }
+
+  .editor-subtitle {
+    font-size: 12px;
+  }
+
+  .editor-sidebar-inner {
+    padding: 16px;
+    gap: 20px;
+  }
+
+  .editor-sidebar {
+    min-height: 100vh;
+  }
+
+  .editor-content {
+    min-height: 40vh;
+  }
+
+  .editor-preview {
+    padding: 20px;
+  }
+
+  .cover-preview {
+    max-width: 100%;
+  }
+}

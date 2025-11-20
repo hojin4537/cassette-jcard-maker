@@ -1,0 +1,100 @@
+.track-list-input {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.track-list-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+.track-list-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.track-list-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background-color: #f9f9f9;
+  border-radius: 6px;
+}
+
+.track-list-number {
+  font-size: 14px;
+  font-weight: 600;
+  color: #666;
+  min-width: 24px;
+}
+
+.track-list-input-field {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+.track-list-input-field:focus {
+  outline: none;
+  border-color: #4a90e2;
+}
+
+.track-list-remove {
+  padding: 6px 12px;
+  background-color: #ff4444;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background-color 0.2s;
+}
+
+.track-list-remove:hover {
+  background-color: #cc0000;
+}
+
+.track-list-add {
+  display: flex;
+  gap: 8px;
+}
+
+.track-list-add-input {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+.track-list-add-input:focus {
+  outline: none;
+  border-color: #4a90e2;
+}
+
+.track-list-add-button {
+  padding: 10px 20px;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.track-list-add-button:hover {
+  background-color: #357abd;
+}
+

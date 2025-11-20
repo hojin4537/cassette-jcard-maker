@@ -1,0 +1,446 @@
+.jcard-wizard {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.wizard-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background-color: white;
+  border-bottom: 1px solid #ddd;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .wizard-header {
+    padding: 16px;
+    gap: 12px;
+  }
+}
+
+.wizard-back-button {
+  padding: 8px 16px;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.wizard-back-button:hover {
+  background-color: #e0e0e0;
+}
+
+.wizard-steps {
+  display: flex;
+  gap: 20px;
+  flex: 1;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+
+@media (max-width: 768px) {
+  .wizard-steps {
+    gap: 12px;
+    padding: 8px;
+  }
+}
+
+.wizard-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+
+.wizard-step.active {
+  opacity: 1;
+}
+
+.wizard-step.completed {
+  opacity: 0.7;
+}
+
+.wizard-step-number {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #e0e0e0;
+  color: #666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 16px;
+  transition: all 0.2s;
+}
+
+.wizard-step.active .wizard-step-number {
+  background-color: #4a90e2;
+  color: white;
+}
+
+.wizard-step.completed .wizard-step-number {
+  background-color: #4a90e2;
+  color: white;
+}
+
+.wizard-step-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #666;
+}
+
+.wizard-step.active .wizard-step-label {
+  color: #4a90e2;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .wizard-step-number {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+
+  .wizard-step-label {
+    font-size: 12px;
+  }
+}
+
+.wizard-content {
+  flex: 1;
+  overflow: hidden;
+}
+
+.wizard-preview-step {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 40px;
+  gap: 24px;
+  box-sizing: border-box;
+  overflow: hidden;
+  /* Prevent outer scroll */
+}
+
+@media (max-width: 768px) {
+  .wizard-preview-step {
+    padding: 20px;
+    gap: 16px;
+  }
+}
+
+.wizard-preview-panel {
+  flex: 1;
+  background-color: #fafafa;
+  padding: 24px;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow: hidden;
+  /* Container should not scroll */
+  min-height: 0;
+  /* Allow flex child to shrink */
+}
+
+.wizard-preview-header h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+  color: #222;
+}
+
+.wizard-preview-header p {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.wizard-preview-canvas-container {
+  flex: 1;
+  min-height: 0;
+  /* Allow flex child to shrink */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  /* Container manages overflow */
+  padding: 20px;
+}
+
+.wizard-preview-canvas-wrapper {
+  flex: 1;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: auto;
+  padding: 20px;
+  display: block;
+  /* Changed from flex to block to allow proper scrolling */
+}
+
+.zoom-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  flex-shrink: 0;
+}
+
+.zoom-button {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+  transition: all 0.2s;
+}
+
+.zoom-button:hover:not(:disabled) {
+  background-color: #e0e0e0;
+  border-color: #bbb;
+}
+
+.zoom-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.zoom-level {
+  min-width: 60px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+.zoom-reset-button {
+  padding: 8px 16px;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.zoom-reset-button:hover {
+  background-color: #357abd;
+}
+
+.wizard-preview-canvas {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #e7e7e7;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+  padding: 20px;
+  transform-origin: top center;
+  transition: transform 0.2s ease;
+  margin: auto;
+  min-height: fit-content;
+}
+
+.wizard-preview-canvas canvas {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.wizard-preview-hint {
+  margin: 0;
+  font-size: 12px;
+  color: #999;
+  text-align: right;
+}
+
+.wizard-preview-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: flex-end;
+  flex-shrink: 0;
+  /* Never shrink - always visible */
+  padding-top: 8px;
+  /* Add some spacing from preview */
+}
+
+@media (max-width: 600px) {
+  .wizard-preview-actions {
+    flex-direction: column;
+  }
+
+  .wizard-preview-actions button {
+    width: 100%;
+  }
+}
+
+/* Download buttons styling */
+.download-button {
+  padding: 10px 20px;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.download-button:hover {
+  background-color: #357abd;
+}
+
+.back-button {
+  padding: 10px 20px;
+  background-color: #f0f0f0;
+  color: #333;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.back-button:hover {
+  background-color: #e0e0e0;
+}
+
+/* HTML Preview Styles (Ported from JCardPreview.css) */
+.wizard-preview-html-content {
+  /* No transform scaling - render at actual size for proper scrolling */
+  min-width: fit-content;
+  width: fit-content;
+  margin: 0 auto;
+  padding-bottom: 40px;
+}
+
+.jcard-full-preview-html {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  padding: 0;
+  height: 1228px;
+  /* 10.4cm @ 300 DPI */
+  flex-shrink: 0;
+}
+
+/* Sections */
+.jcard-full-preview-html .preview-section {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+
+/* Flap Section: 2.3cm @ 300 DPI = ~272px */
+.jcard-full-preview-html .flap-section {
+  width: 272px;
+  border-right: 1px dashed #ddd;
+}
+
+/* Spine Section: 1.5cm @ 300 DPI = ~177px */
+.jcard-full-preview-html .spine-section {
+  width: 177px;
+  border-right: 1px dashed #ddd;
+}
+
+/* Cover Section: 6.6cm @ 300 DPI = ~780px */
+.jcard-full-preview-html .cover-section {
+  width: 780px;
+}
+
+/* Preserve editor styling but adjust for preview context */
+.jcard-full-preview-html .flap-preview-box {
+  /* Keep editor styles except border-radius for print */
+  border-radius: 0 !important;
+  /* No rounded corners for print */
+  transform: none !important;
+  /* Remove zoom transform */
+  aspect-ratio: auto !important;
+  /* Use container dimensions */
+  width: 100%;
+  height: 100%;
+}
+
+.jcard-full-preview-html .spine-preview-box {
+  /* Keep editor styles except border-radius for print */
+  border-radius: 0 !important;
+  /* No rounded corners for print */
+  transform: none !important;
+  /* Remove zoom transform */
+  aspect-ratio: auto !important;
+  /* Use container dimensions */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.jcard-full-preview-html .cover-preview-image {
+  /* Keep editor styles except border-radius for print */
+  border-radius: 0 !important;
+  /* No rounded corners for print */
+  width: 100%;
+  height: 100%;
+}
+
+/* Center flap content to match editor */
+.jcard-full-preview-html .flap-preview-content {
+  justify-content: center !important;
+  /* Equal top/bottom margins */
+}
+
+/* Cover image wrapper for img tag */
+.cover-preview-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.cover-preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.cover-preview-image-wrapper .cover-preview-text {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  white-space: nowrap;
+  z-index: 1;
+}

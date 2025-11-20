@@ -1,0 +1,195 @@
+.label-editor {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.editor-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background-color: white;
+  border-bottom: 1px solid #ddd;
+}
+
+.back-button {
+  padding: 8px 16px;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.back-button:hover {
+  background-color: #e0e0e0;
+}
+
+.editor-title {
+  flex: 1;
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+}
+
+.download-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.download-button {
+  padding: 10px 20px;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.download-button:hover {
+  background-color: #357abd;
+}
+
+.editor-content {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.editor-sidebar {
+  width: 400px;
+  padding: 20px;
+  background-color: white;
+  border-right: 1px solid #ddd;
+  overflow-y: auto;
+}
+
+.input-section {
+  margin-bottom: 30px;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+.text-input-wrapper {
+  position: relative;
+  margin-bottom: 12px;
+}
+
+.remove-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 4px 8px;
+  background-color: #ff4444;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background-color 0.2s;
+}
+
+.remove-button:hover {
+  background-color: #cc0000;
+}
+
+.add-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border: 1px dashed #ddd;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #666;
+  transition: all 0.2s;
+}
+
+.add-button:hover {
+  background-color: #e0e0e0;
+  border-color: #4a90e2;
+  color: #4a90e2;
+}
+
+.image-preview-list {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.image-preview-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background-color: #f9f9f9;
+  border-radius: 6px;
+}
+
+.image-preview {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.image-name {
+  flex: 1;
+  font-size: 12px;
+  color: #666;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.generate-button {
+  width: 100%;
+  padding: 14px;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background-color 0.2s;
+  margin-top: 20px;
+}
+
+.generate-button:hover:not(:disabled) {
+  background-color: #357abd;
+}
+
+.generate-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.editor-preview {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow: auto;
+}
+
+.preview-placeholder {
+  text-align: center;
+  color: #999;
+  font-size: 16px;
+}
+

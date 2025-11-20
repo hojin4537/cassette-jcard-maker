@@ -1,0 +1,68 @@
+.template-selector {
+  min-height: 100vh;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.selector-header {
+  text-align: center;
+  margin-bottom: 60px;
+  color: white;
+}
+
+.selector-title {
+  font-size: 48px;
+  font-weight: 700;
+  margin: 0 0 16px 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.selector-subtitle {
+  font-size: 20px;
+  margin: 0;
+  opacity: 0.9;
+}
+
+.templates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.template-card {
+  background: white;
+  border-radius: 16px;
+  padding: 40px 30px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.template-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.template-preview {
+  font-size: 80px;
+  margin-bottom: 20px;
+}
+
+.template-name {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 8px 0;
+}
+
+.template-type {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+

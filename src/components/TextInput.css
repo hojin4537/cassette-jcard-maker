@@ -1,0 +1,33 @@
+.text-input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.text-input-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+.text-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+
+.text-input:focus {
+  outline: none;
+  border-color: #4a90e2;
+}
+
+.text-input-multiline {
+  resize: vertical;
+  min-height: 80px;
+}
+

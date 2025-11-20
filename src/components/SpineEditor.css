@@ -1,0 +1,382 @@
+.spine-editor {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  background-color: #f5f5f5;
+  overflow: hidden;
+}
+
+/* 왼쪽 사이드바 */
+.editor-sidebar {
+  width: 400px;
+  min-width: 300px;
+  background-color: white;
+  border-right: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* 헤더 */
+.editor-header {
+  padding: 20px;
+  border-bottom: 1px solid #ddd;
+  flex-shrink: 0;
+}
+
+.editor-title {
+  margin: 0 0 8px 0;
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+}
+
+.editor-subtitle {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+}
+
+/* 사이드바 내부 컨텐츠 */
+.editor-sidebar-inner {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  min-height: 0;
+  padding-bottom: 20px;
+}
+
+.editor-sidebar-inner::-webkit-scrollbar {
+  width: 8px;
+}
+
+.editor-sidebar-inner::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.editor-sidebar-inner::-webkit-scrollbar-thumb {
+  background: #ddd;
+  border-radius: 4px;
+}
+
+.editor-sidebar-inner::-webkit-scrollbar-thumb:hover {
+  background: #bbb;
+}
+
+/* 입력 섹션 */
+.input-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.info-text {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #999;
+}
+
+.color-preview {
+  padding: 20px;
+  border-radius: 8px;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.color-info {
+  text-align: center;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.color-code {
+  font-family: monospace;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+/* 다음 버튼 */
+.next-button {
+  width: 100%;
+  padding: 14px;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background-color 0.2s;
+  flex-shrink: 0;
+  margin-top: 8px;
+}
+
+.next-button:hover:not(:disabled) {
+  background-color: #357abd;
+}
+
+.next-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* 사이드바 뒤로 버튼 */
+.back-button-sidebar {
+  width: 100%;
+  padding: 12px;
+  background-color: #f5f5f5;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+  flex-shrink: 0;
+  margin-top: 8px;
+}
+
+.back-button-sidebar:hover {
+  background-color: #e8e8e8;
+  border-color: #bbb;
+}
+
+/* 오른쪽 프리뷰 영역 */
+.editor-content {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.editor-preview {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 40px;
+  overflow: auto;
+  position: relative;
+}
+
+.spine-preview-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 100%;
+  min-height: 100%;
+}
+
+.zoom-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  flex-shrink: 0;
+}
+
+.zoom-button {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+  transition: all 0.2s;
+}
+
+.zoom-button:hover:not(:disabled) {
+  background-color: #e0e0e0;
+  border-color: #bbb;
+}
+
+.zoom-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.zoom-level {
+  min-width: 60px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+.zoom-reset-button {
+  padding: 8px 16px;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.zoom-reset-button:hover {
+  background-color: #357abd;
+}
+
+.spine-preview {
+  width: 100%;
+  max-width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-origin: center center;
+}
+
+.spine-preview-box {
+  width: 100%;
+  aspect-ratio: 1.5 / 10.4;
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.spine-preview-text {
+  writing-mode: vertical-rl;
+  text-orientation: sideways;
+  text-align: center;
+  line-height: 1.2;
+  white-space: nowrap;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* 반응형 */
+@media (max-width: 1024px) {
+  .spine-editor {
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .editor-sidebar {
+    width: 100%;
+    flex-shrink: 0;
+    min-height: 100vh;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .editor-sidebar-inner {
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .editor-content {
+    flex-shrink: 0;
+    min-height: 50vh;
+    position: relative;
+    z-index: 1;
+  }
+
+  .editor-preview {
+    padding: 20px;
+  }
+
+  .zoom-controls {
+    top: 20px;
+    right: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .editor-header {
+    padding: 16px;
+  }
+
+  .editor-title {
+    font-size: 20px;
+  }
+
+  .editor-subtitle {
+    font-size: 12px;
+  }
+
+  .editor-sidebar-inner {
+    padding: 16px;
+    gap: 20px;
+  }
+
+  .editor-sidebar {
+    min-height: 100vh;
+  }
+
+  .editor-content {
+    min-height: 40vh;
+  }
+
+  .editor-preview {
+    padding: 16px;
+  }
+
+  .zoom-controls {
+    top: 16px;
+    right: 16px;
+    padding: 8px 12px;
+    gap: 8px;
+  }
+
+  .zoom-button {
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+  }
+
+  .zoom-level {
+    min-width: 50px;
+    font-size: 12px;
+  }
+
+  .zoom-reset-button {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  .spine-preview {
+    max-width: 150px;
+  }
+}
