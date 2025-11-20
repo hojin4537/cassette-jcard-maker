@@ -16,8 +16,8 @@ interface FlapEditorProps {
 
 export const FlapEditor: React.FC<FlapEditorProps> = ({
   data,
-  coverData,
-  spineData,
+  coverData: _coverData,
+  spineData: _spineData,
   coverAlbumName,
   onChange,
   onBack,
