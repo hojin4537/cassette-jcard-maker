@@ -14,10 +14,7 @@ interface FlapEditorProps {
   onNext: () => void;
 }
 
-export const FlapEditor: React.FC<FlapEditorProps> = ({
-  data,
-  coverData,
-  spineData,
+data,
   coverAlbumName,
   onChange,
   onBack,

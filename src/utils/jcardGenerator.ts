@@ -184,7 +184,6 @@ async function renderFlapPanel(
   ctx.fillStyle = '#FFFFFF';
   ctx.fillRect(0, 0, width, height);
 
-  const padding = 20 * scale;
   const contentStartX = bleed;
   const contentStartY = bleed;
   const contentWidth = panelWidth;

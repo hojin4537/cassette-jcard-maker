@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import type { JCardData } from '../types/editor';
 import { renderFullJCard } from '../utils/jcardGenerator';
 import { downloadCanvas, createHighResCanvas } from '../utils/canvasExporter';
@@ -124,7 +124,7 @@ export const JCardPreview: React.FC<JCardPreviewProps> = ({ data, onBack }) => {
           {/* Cover Section */}
           <div className="preview-section cover-section">
             {imagePreview ? (
-              <div className="cover-preview-image" style={{ 
+              <div className="cover-preview-image" style={{
                 backgroundImage: `url(${imagePreview})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center'
